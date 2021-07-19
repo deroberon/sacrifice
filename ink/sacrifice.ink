@@ -221,28 +221,47 @@ Now, it's time for you to know your fate.
 
 
 = end_1
-End 1
+You commit suicide, offering your soul to the dark forces of the universe.
 ->END
 
 = end_2
-End 2
+Your mind begins to fade. All of this... This cannot be real.. But if it is real? This thing will haunt me forever. 
+
+You commit suicide to escape this torment.
 ->END
 
 = end_3
-End 3
+You cut yourself and offer your blood to the dark forces of evil. 
 ->END
 
 = end_4
-End 4
+You went out to kill the responsibles for this. You offer their souls to the dark forces of the universe
 ->END
 
 = end_5
-End 5
+You went out to kill the responsibles for this. You kill one by one in a frenesi of blood and flesh. You rape them and cum over theri open guts
 ->END
 
 = end_6
-End 6
+You was found insane, with a knife on your hand, repeating: I could not do it! I could not do it! I didn't have the courage. Kill me! Kill me please!!! 
+
+You was taken and forced to live the rest of your life in an Asylum
 ->END
 
 = special_end1
+A transformation take place in the cave... 
+It's it's something that cannot be described.. 
+The creature.. The cave... Everything is the same thing 
+The creature, me, the cave.... 
+Oh god, make it stop... 
+I can't breath..
+I'm suffocating
+I'm done... 
+It's ..
+It's ...
+It's so beautiful
+Hahahaha...
+HAHAHAHAHAHAHAHAHAHAH......
+
+
 ->END

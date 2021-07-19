@@ -38,8 +38,14 @@ define gui.about = _p("""
 ## or semicolons.
 
 define build.name = "sacrifice"
-
-
+## My Customizations #############################
+define gui.text_font = "gipsycurse.ttf"
+define gui.text_size = 45
+define gui.textbox_height = 330
+define gui.name_text_font = "gipsycurse.ttf"
+define gui.name_text_size = 60
+define gui.choice_button_text_font = "gipsycurse.ttf"
+define gui.choice_button_text_size = 50
 ## Sounds and music ############################################################
 
 ## These three variables control which mixers are shown to the player by

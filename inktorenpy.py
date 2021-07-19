@@ -217,15 +217,18 @@ class Story:
                 else:
                     option.title="\""+part0.strip()+"\""     
                 option.great_chapter=chapter
-                if not parts[1].strip()=="":
+                line2=parts[1].strip()
+                if not line2=="":
                     renline=Line(renpy_story)
-                    if not line.find("#")==-1:
-                        renline.content="\""+line[0:line.find("#")]+"\""
-                        if not line.find("#CH:")==-1:
-                            renline.whois=line[line.find("#CH:")+4:].strip()
-                            renline.content="\""+line[0:line.find("#")].strip()+"\""
+                    if not line2.find("#")==-1:
+                        renline.content="\""+line2[0:line.find("#")]+"\""
+                        if not line2.find("#CH:")==-1:
+                            renline.whois=line2[line2.find("#CH:")+4:].strip()
+                            renline.content="\""+line2[0:line2.find("#")].strip()+"\""
+                            option.lines.append(renline)
                     else:
-                        renline.content="\""+line+"\""
+                        renline.content="\""+line2+"\""
+                        option.lines.append(renline)
                 option_activo=option
                 menu_activo.options.append(option)
                 renpy_story.options[option.title]=option_activo

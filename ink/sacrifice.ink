@@ -19,7 +19,7 @@ Now that your eyes are beginning to get used to the darkness, you can see you ar
 Some occult symbols were drawed in the floor and you notice you cannot move. You are tied.
 But worse than that... You can hear something on the other side of the room... 
 What they did to me?
-
+##CO: play music "audio/malignchords.ogg"
  --They drugged you. And now you are my sacrifice. And I probabbly will kill you. Perhaps not. There are worse destines than death. But the way I will inflict pain to you will depends of your answers.  #CH:creature
 
 You hear an a inhuman voice coming from the other side of the cave. 

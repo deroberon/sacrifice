@@ -122,21 +122,29 @@ Now that I know you a little bit more, let me come closer. My name is...
 In fact... Who do you think I am?
     -(opcb1)
     *[The God]
+        ~madness=madness+1
+        ~darkness=darkness-1
         ->question2
     *[A god]
+        ~madness=madness-1
         ->question3
     *[A demon]
+        ~darkness=darkness-1
         ->question4
     *[Something older]
+        ~darkness=darkness+1
+        ~madness=madness+1
         ->question5
 
 =question2
 Me? The god? I'm feeling flattered... And a little bit sad for you. 
 Do you think that exist such thing? God?
     -(opcb2)
-    *[Yes] Do you really think that with so many planes and this gigantic universe there exists just one of what you call god? You are so limited. 
+    *[Yes] Do you really think that with so many planes and this gigantic universe there exists just one of what you call god? You are so limited.
+        ~suicide=suicide-1
         ->tramo_c.start
     *[No] Your mind is already rotten. You don't make sense. How can I be the God if you believe that there's no god? Probabbly I expect too much of your ape brain. 
+        ~madness=madness-1
         ->tramo_c.start 
 
 
@@ -144,48 +152,97 @@ Do you think that exist such thing? God?
 Well, if you think I'm such thing as a god, what kind of god am I?
     -(opcb3)
     *[A god of death] Usually people projects on their gods exactly what they are searching for. In that case, perhaps I'll be the answer for your prayers.
+        ~suicide=suicide+1
         ->tramo_c.start
-    *[A god of pleasure] I see you have a very distorced view of what pleasure is. But perhaps you can feel the pleasure and extasis of pain, flesh and blood. 
+    *[A god of pleasure] I see you have a very distorced view of what pleasure is. But perhaps you can feel the pleasure and extasis of pain, flesh and blood.
+        ~darkness=darkness+1
         ->tramo_c.start
 
 =question4
 So, am I correct if I say you are attracted to the darkside?
     -(opcb4)
     *[Yes, I'm attracted to the dark side] It's good to know. Darkness is all that exists when you die, and you will have a lot of time to enjoy the darkness of the void.
-    ->tramo_c.start
+        ~darkness=darkness+1
+        ->tramo_c.start
     *[No, I just think you are evil] Humans... always simplifying things. I'm beyond your primitive concepts of good and evil. Forget it, you will never understand.
-    Even if you have a lot of time to think about it. But you don't.
-    ->tramo_c.start
+        Even if you have a lot of time to think about it. But you don't.
+        ~darkness=darkness-1
+        ->tramo_c.start
 
 =question5
 It's the first plausible answer you give me in our little conversation. So I will concede you the honor of see my true form. Do you want it? 
     -(opcb5)
-    *[Yes, it will be an honor] You are fool... You really believe you deserve some honor? Learn a last thing before your destiny: be carefull with what you wish. 
+    *[Yes, it will be an honor] You are fool... You really believe you deserve some honor? Learn a last thing before your destiny: be carefull with what you wish.
     ->endings.special_end1
-    *[No, keep it for yourself] Wise choice. You should have used your judgment when you chose your friends. But now it's to late for this. 
+    *[No, keep it for yourself] Wise choice. You should have used your judgment when you chose your friends. But now it's to late for this.
+    ~madness=madness-1
     ->tramo_c.start
 
 
-
-
 === tramo_c===
-= start
-->endings.start
+=start
+->question1
+= question1
+Now I'm already bored. So, just one final question before I decide what to do with you.
+If I let you live, what will you do?
+    -(opcc1)
+    *[Suicide] So it's indiferent if I kill you. You don't deserve to live. 
+    ~suicide=suicide+1
+    ->endings.start
+    *[Do only good things] Everyone said the same thing... You are a liar. And I hate liars
+    ~darkness=darkness-1
+    ->endings.start
+    *[Serve the the dark powers] Perhaps you can be usefull in the end... I have something in my mind... 
+    ~darkness=darkness+1
+    ->endings.start
+    *[Kill my "friends"] That's an excelent choice. Revenge! Nothing make us feel more alive than this!
+    ~madness=madness+1
+    ->endings.start
+    *[Visit a doctor. I'm mad] Do you still think that you are alucinating? I will show you what an alucination can do you.
+    ~madness=madness-1
+    ->endings.start
+    *[Enjoy life the better I can] Pathetic. You keep believing you will have a life after I finish you. 
+    ~suicide=suicide-1
+    ->endings.start
+    
 
 === endings ===
 =start
-->end_1
+Now, it's time for you to know your fate.
+
+{suicide>darkness and darkness>madness: ->end_1 }
+{suicide>madness and madness>darkness: ->end_2 }
+
+{darkness>suicide and suicide>madness: ->end_3}
+{darkness>madness and madness>suicide: ->end_4}
+
+{madness>darkness and darkness>suicide: ->end_5}
+{madness>suicide and suicide>darkness: ->end_6}
+
+
 = end_1
+End 1
 ->END
+
 = end_2
+End 2
 ->END
+
 = end_3
+End 3
 ->END
-= end4
+
+= end_4
+End 4
 ->END
-= end5
+
+= end_5
+End 5
 ->END
-= end7
+
+= end_6
+End 6
 ->END
+
 = special_end1
 ->END

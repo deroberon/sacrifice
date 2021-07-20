@@ -259,7 +259,11 @@ class Story:
                 line=parts[1].strip()
                 renline=Line(renpy_story)
                 renline.conditional=parts[0].strip()
-                if not line.find("#")==-1:
+                if line.startswith("->"):
+                    ## TODO: 
+                    jump=line.replace("->","").replace(".",separator).strip()
+
+                elif not line.find("#")==-1:
                     renline.content="\""+line[0:line.find("#")]+"\""
                     if not line.find("#CH:")==-1:
                         renline.whois=line[line.find("#CH:")+4:].strip()

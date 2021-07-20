@@ -353,7 +353,13 @@ label endings__start:
 label endings__end_1:
     $ endings__end_1=endings__end_1+1
     scene bg end1
-    "You commit suicide, offering your soul to the dark forces of the universe."
+    "You notice you are untied."
+    "A knife is in your hands."
+    creature "You know what you have to do."
+    "You stab yourself direct in the heart while thinking about serving this creature."
+    "You offered your soul to the dark forces of the universe."
+    "You die."
+    "THE END"
     jump end
 
 
@@ -361,8 +367,14 @@ label endings__end_1:
 label endings__end_2:
     $ endings__end_2=endings__end_2+1
     scene bg end2
+    "You notice you are untied."
+    "A knife is in your hands."
+    "The creature wasn't there."
     "Your mind begins to fade. All of this... This cannot be real.. But if it is real? This thing will haunt me forever."
-    "You commit suicide to escape this torment."
+    "And even if it's not real, it will haunt me forever... I know it!"
+    "You pickup the knife and cut your throat seeing your blood spills while everything is becoming darker..."
+    "You die."
+    "THE END"
     jump end
 
 
@@ -370,7 +382,16 @@ label endings__end_2:
 label endings__end_3:
     $ endings__end_3=endings__end_3+1
     scene bg end3
-    "You cut yourself and offer your blood to the dark forces of evil."
+    "You notice you are untied."
+    "A knife is in your hands."
+    "The creature wasn't there."
+    "Perhaps it was a dream, but it seems so real..."
+    "Perhaps it was just a warning. You have to do your offerings to the dark powers..."
+    "Offerings of blood."
+    "You pickup the knife..."
+    "And cut yourself offering your blood to the dark forces of evil, while tracing strange symbols on the floor."
+    "You will serve them. Forever. Your souls belong to them."
+    "THE END"
     jump end
 
 
@@ -378,7 +399,15 @@ label endings__end_3:
 label endings__end_4:
     $ endings__end_4=endings__end_4+1
     scene bg end4
-    "You went out to kill the responsibles for this. You offer their souls to the dark forces of the universe"
+    "You notice you are untied."
+    "A knife is in your hands."
+    "The creature wasn't there."
+    "It allowed you to live, but you know what you should do."
+    "The forces of evil never forgive, they never forget."
+    "They demand blood. And if it's not your blood, it have to be someone else's blood."
+    "You go out of the cave to hunt and kill the responsibles for this."
+    "You will offer their souls to the dark forces of the universe."
+    "THE END"
     jump end
 
 
@@ -386,7 +415,16 @@ label endings__end_4:
 label endings__end_5:
     $ endings__end_5=endings__end_5+1
     scene bg end5
-    "You went out to kill the responsibles for this. You kill one by one in a frenesi of blood and flesh. You rape them and cum over theri open guts"
+    "You notice you are untied."
+    "A knife is in your hands."
+    creature "You know what you have to do. Do it, and have fun doing it."
+    "You thank the creature and go out of the cave."
+    "to hunt the responsibles for this."
+    "You tracked and kill one by one in an extasy of blood and flesh."
+    "You rape their dead bodies and cum over their open guts."
+    "When the police catch you, you was covered in blood and laugh insanely."
+    "You was taken and forced to live the rest of your life in an Asylum"
+    "THE END"
     jump end
 
 
@@ -394,8 +432,16 @@ label endings__end_5:
 label endings__end_6:
     $ endings__end_6=endings__end_6+1
     scene bg end6
-    "You was found insane, with a knife on your hand, repeating: I could not do it! I could not do it! I didn't have the courage. Kill me! Kill me please!!!"
+    "You notice you are untied."
+    "A knife is in your hands."
+    "The creature wasn't there."
+    "You stay there, unable to move."
+    "But you know what you should do."
+    "..."
+    "You was found in the cave days later..."
+    "with a knife on your hand, repeating: I could not do it! I could not do it! I didn't have the courage. Kill me! Kill me please!!!"
     "You was taken and forced to live the rest of your life in an Asylum"
+    "THE END"
     jump end
 
 
@@ -416,6 +462,8 @@ label endings__special_end1:
     "It's so beautiful"
     "Hahahaha..."
     "HAHAHAHAHAHAHAHAHAHAH......"
+    "You were embraced by madness and consumed by the creature."
+    "THE END"
     jump end
 
 

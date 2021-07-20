@@ -335,17 +335,17 @@ label endings__start:
     creature "Now, it's time for you to know your fate. Close your eyes."
     "You closed your eyes, and when you opened..."
     if suicide>darkness and darkness>madness :
-        "->end_1"
+            jump endings__end_1
     if suicide>madness and madness>darkness :
-        "->end_2"
+            jump endings__end_2
     if darkness>suicide and suicide>madness :
-        "->end_3"
+            jump endings__end_3
     if darkness>madness and madness>suicide :
-        "->end_4"
+            jump endings__end_4
     if madness>darkness and darkness>suicide :
-        "->end_5"
+            jump endings__end_5
     if madness>suicide and suicide>darkness :
-        "->end_6"
+            jump endings__end_6
 
 
 
@@ -417,3 +417,5 @@ label endings__special_end1:
     "Hahahaha..."
     "HAHAHAHAHAHAHAHAHAHAH......"
     jump end
+
+

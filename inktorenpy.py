@@ -19,6 +19,7 @@ class End:
     def to_str(self,tabs):
         tmp=tabs+"return\n"
         return tmp
+
 class Line:
     def __init__(self,rps):
         self.content=""
@@ -26,18 +27,24 @@ class Line:
         self.whois=""
         self.renpystory=rps
         self.conditional=""
-        pass
+        self.jump=""
+        self.great_chapter=""
 
     def to_str(self,tabs):
         tmp=""
+        if not self.conditional=="":
+            tmp=tmp+tabs+"if "+self.conditional+" :\n"
+            tabs=tabs+TAB
         if not self.content=="":
-            if not self.conditional=="":
-                tmp=tmp+tabs+"if "+self.conditional+" :\n"
-                tabs=tabs+TAB
             if self.whois=="":
                 tmp=tmp+tabs+self.content+"\n"
             else:
                 tmp=tmp+tabs+self.whois+" "+self.content+"\n"
+        if not self.jump=="":
+            if(self.jump in self.renpystory.labels) or (self.jump in self.renpystory.menus):
+                tmp=tmp+tabs+TAB+"jump "+self.jump
+            else:
+                tmp=tmp+tabs+TAB+"jump "+self.great_chapter+SEPARATOR+self.jump+"\n"
         return tmp
 
 class Menu:
@@ -260,9 +267,9 @@ class Story:
                 renline=Line(renpy_story)
                 renline.conditional=parts[0].strip()
                 if line.startswith("->"):
-                    ## TODO: 
                     jump=line.replace("->","").replace(".",separator).strip()
-
+                    renline.jump=jump
+                    renline.great_chapter=chapter
                 elif not line.find("#")==-1:
                     renline.content="\""+line[0:line.find("#")]+"\""
                     if not line.find("#CH:")==-1:

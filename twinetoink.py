@@ -7,7 +7,7 @@ OPTPREFIX="opc_"
 CHAPTER="twine"
 SET_VARIABLE_PATTERN=r'\(set:[ ]*\$([^ ]*)[ ]*to[ ]*([^ ]*)[ ]*\)'
 IF_PATTERN=r'\(if:[ ]*([^\)]*)\)[ ]*\[([^\]]*)\]'
-OPTION_PATTERN=r'\[\[([^\]]*)\]\]'
+OPTION_PATTERN=r'\[\[[ ]*([^\]]*)[ ]*\]\]'
 
 
 opt_index=0
@@ -26,8 +26,11 @@ def print_chapter(passage):
             nline=variable_definition[0][0].replace("$","")+" = "+variable_definition[0][1].replace("$","")
             tmp=tmp+"~"+nline+"\n"
         elif len(if_definition)>0:
-            pass
+            condition=if_definition[0][0].replace("$","").replace("is","==")
+            jump=option_definition[0]
+            tmp=tmp+"* {"+condition+"}  ["+jump+"] ->"+CHAPTER+"."+jump+"\n"
         elif len(option_definition)>0:
+            tmp=tmp+"* ["+option_definition[0]+"] ->"+CHAPTER+"."+option_definition[0]+"\n"
             options=options+1
             pass
         else:
@@ -40,6 +43,7 @@ def print_chapter(passage):
 
 
 filename="twine/Teste01.html"
+filename2="twine/Teste01.ink"
 
 file=open(filename, 'r',encoding="utf-8")
 lines=file.readlines()
@@ -58,6 +62,7 @@ passages=story[0].find_all(PASSAGE_DATA)
 ## Parse para levantar nome de todas as variaveis
 
 ## 1-) Definir todas as variaveis
+tmp=""
 for passage in passages:
     vars=re.findall(SET_VARIABLE_PATTERN,passage.text) 
     for var in vars:
@@ -65,13 +70,18 @@ for passage in passages:
             variables[var[0]]=var
 
 for variable in variables.keys():
-    print("VAR "+variable+" = "+variables[variable][1]+"\n")
+    tmp=tmp+"VAR "+variable+" = "+variables[variable][1]+"\n"
 
+tmp=tmp+"\n-> "+CHAPTER+".Start\n\n"
 ## 2-) Imprimir todos os capitulos
-tmp="=== "+CHAPTER+"===\n"
+tmp=tmp+"\n=== "+CHAPTER+"===\n"
 
 for passage in passages:
     tmp=tmp+"= "+passage.get("name")+"\n"
     tmp=tmp+print_chapter(passage)
- 
+
+file2=open(filename2, 'w',encoding="utf-8")
+file2.write(tmp)
+file.close()
+file2.close()
 print(tmp)

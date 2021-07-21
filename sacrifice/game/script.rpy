@@ -42,7 +42,7 @@ label end:
 define darkness=0
 define suicide=0
 define madness=0
-define creature=Character('Creature', color="#c8ffc8")
+define creature=Character('Creature', color="#ff0000")
 
 label intro__start:
     $ intro__start=intro__start+1

@@ -2,7 +2,7 @@ VAR darkness=0
 VAR suicide=0
 VAR madness=0
 
-##CH: define creature=Character('Creature', color="#c8ffc8")
+##CH: define creature=Character('Creature', color="#ff0000")
 
 -> intro.start
 

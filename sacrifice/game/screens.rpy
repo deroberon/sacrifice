@@ -253,7 +253,7 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Voltar") action Rollback()
+            textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
@@ -321,7 +321,7 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("Sobre") action ShowMenu("about")
+        textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -332,7 +332,7 @@ screen navigation():
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Sair") action Quit(confirm=not main_menu)
+            textbutton _("Quit") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -473,7 +473,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     use navigation
 
-    textbutton _("Voltar"):
+    textbutton _("Back"):
         style "return_button"
 
         action Return()
@@ -550,7 +550,7 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("Sobre"), scroll="viewport"):
+    use game_menu(_("About"), scroll="viewport"):
 
         style_prefix "about"
 

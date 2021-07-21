@@ -36,6 +36,8 @@ Programming: Andre Andrade
 
 Art: Andre Andrade
 
+Background: Background vector created by brgfx (https://www.freepik.com/vectors/background)
+
 Music: Patrick de Arteaga (https://patrickdearteaga.com/)
 """)
 
@@ -48,7 +50,7 @@ define build.name = "sacrifice"
 ## My Customizations #############################
 define gui.text_font = "gipsycurse.ttf"
 define gui.text_size = 45
-define gui.textbox_height = 330
+define gui.textbox_height = 280
 define gui.name_text_font = "gipsycurse.ttf"
 define gui.name_text_size = 60
 define gui.choice_button_text_font = "gipsycurse.ttf"

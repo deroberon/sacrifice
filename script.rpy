@@ -57,8 +57,9 @@ label intro__start:
     "Some occult symbols were drawed in the floor and you notice you cannot move. You are tied."
     "But worse than that... You can hear something on the other side of the room..."
     "What they did to me?"
+    scene bg creature1
     play music "audio/malignchords.ogg"
-    creature "--They drugged you. And now you are my sacrifice. And I probabbly will kill you. Perhaps not. There are worse destines than death. But the way I will inflict pain to you will depends of your answers."
+    creature "They drugged you. And now you are my sacrifice. And I probably will kill you. Perhaps not. There are worse destines than death. But the way I will inflict pain to you will depends of your answers."
     "You hear an a inhuman voice coming from the other side of the cave."
     jump tramo_a__start
 
@@ -66,14 +67,13 @@ label intro__start:
 
 label tramo_a__start:
     $ tramo_a__start=tramo_a__start+1
-    scene bg creature1
     jump tramo_a__question1
 
 
 
 label tramo_a__question1:
     $ tramo_a__question1=tramo_a__question1+1
-    creature "-- Tell me, disgusting human... Do you want to live?"
+    creature "Tell me, disgusting human... Do you want to live?"
     menu opca1:
         "Yes":
             $ darkness=darkness-1
@@ -91,7 +91,7 @@ label tramo_a__question1:
 
 label tramo_a__question2:
     $ tramo_a__question2=tramo_a__question2+1
-    creature "-- Pathetic... You want so bad to live, but you even can tell me what life is. I'll give you a chance. What is life for you?"
+    creature "Pathetic... You want so bad to live, but you even can tell me what life is. I'll give you a chance. What is life for you?"
     menu opca2:
         "Something meaningless":
             $ suicide=suicide+1
@@ -108,7 +108,7 @@ label tramo_a__question2:
 
 label tramo_a__question3:
     $ tramo_a__question3=tramo_a__question3+1
-    creature "--So, you want to die. Are you freely give yourself to me, human?"
+    creature "So, you want to die. Are you freely give yourself to me, human?"
     menu opca3:
         "Yes, take me":
             $ darkness=darkness+1
@@ -123,19 +123,19 @@ label tramo_a__question3:
 
 label tramo_a__question4:
     $ tramo_a__question4=tramo_a__question4+1
-    creature "-- You can even make sense. If life is meaningliess, why do you want to live? Are you just afraid of me?"
-    creature "-- Answer! Why do you want to live?"
+    creature "You can even make sense. If life is meaningless, why do you want to live? Are you just afraid of me?"
+    creature "Answer! Why do you want to live?"
     menu opca4:
         "To have fun":
-            creature "-- Do you think that fun is everything in life? You ignorant fool. You are a disgrace to the human race."
+            creature "Do you think that fun is everything in life? You ignorant fool. You are a disgrace to the human race."
             $ madness=madness-1
             jump tramo_b__start
         "To have pleasure":
-            creature "-- Now we are beginning to undestand each other. You see why I'll have to kill you? This is what gives me pleasure."
+            creature "Now we are beginning to undestand each other. You see why I'll have to kill you? This is what gives me pleasure."
             $ darkness=darkness+1
             jump tramo_b__start
         "To make something great":
-            creature "-- You are useless. You always have been. You didn't anything great until now, what makes you believe that it will be different now? It won't! Nobody will remember your name after tonight."
+            creature "You are useless. You always have been. You didn't anything great until now, what makes you believe that it will be different now? It won't! Nobody will remember your name after tonight."
             $ darkness=darkness-1
             jump tramo_b__start
 
@@ -160,11 +160,11 @@ label tramo_a__question5:
 
 label tramo_a__question6:
     $ tramo_a__question6=tramo_a__question6+1
-    creature "-- It sounds interesting. I can think a million ways to have fun with you while watch you suffer."
-    creature "-- Will you do everything I order? Anything?"
+    creature "It sounds interesting. I can think a million ways to have fun with you while I watch you suffer."
+    creature "Will you do everything I order? Anything?"
     menu opca6:
         "Yes, as you command":
-            creature "So pathetic... You are just a miserable slave. You really deserve to suffer."
+            creature "So pathetic... You are just a miserable slave. You really deserve to suffer. I can bet you want it."
             $ madness=madness+1
             $ darkness=darkness+1
             jump tramo_b__start
@@ -179,7 +179,7 @@ label tramo_a__question6:
 
 label tramo_a__question7:
     $ tramo_a__question7=tramo_a__question7+1
-    creature "-- If you are not going to die willingly, you just converted yourself in a perfect sacrifice."
+    creature "If you are not going to die willingly, you just converted yourself in a perfect sacrifice."
     menu opta7:
         "Yes, you are correct":
             creature ": What a shame. You will even put a fight. Coward."
@@ -187,7 +187,7 @@ label tramo_a__question7:
             $ darkness=darkness+1
             jump tramo_b__start
         "No":
-            creature ": So you just want to suicide. What a coincidence to hace such good friends... At least your death will make them rich. If I decide to kill you."
+            creature ": So you just want to suicide. What a coincidence to have such good friends... At least your death will make them rich. If I decide to kill you."
             $ suicide=suicide+1
             jump tramo_b__start
 
@@ -196,14 +196,15 @@ label tramo_a__question7:
 
 label tramo_b__start:
     $ tramo_b__start=tramo_b__start+1
-    scene bg creature2
     jump tramo_b__question1
 
 
 
 label tramo_b__question1:
     $ tramo_b__question1=tramo_b__question1+1
-    creature "Now that I know you a little bit more, let me come closer. My name is..."
+    "Now that I know you a little bit more, let me come closer."
+    scene bg creature2
+    creature "My name is..."
     creature "In fact... Who do you think I am?"
     menu opcb1:
         "The God":
@@ -230,11 +231,11 @@ label tramo_b__question2:
     creature "Do you think that exist such thing? God?"
     menu opcb2:
         "Yes":
-            creature "Do you really think that with so many planes and this gigantic universe there exists just one of what you call god? You are so limited."
+            creature "Do you really think that with so many planes and this gigantic universe there, there are just one of what you call god? You are so limited."
             $ suicide=suicide-1
             jump tramo_c__start
         "No":
-            creature "Your mind is already rotten. You don't make sense. How can I be the God if you believe that there's no god? Probabbly I expect too much of your ape brain."
+            creature "Your mind is already rotten. You don't make sense. How can I be the God if you believe that there's no god? Probably I expect too much of your ape's brain."
             $ madness=madness-1
             jump tramo_c__start
 
@@ -267,7 +268,7 @@ label tramo_b__question4:
             jump tramo_c__start
         "No, I just think you are evil":
             creature "Humans... always simplifying things. I'm beyond your primitive concepts of good and evil. Forget it, you will never understand."
-            creature "Even if you have a lot of time to think about it. But you don't."
+            creature "Even if you had a lot of time to think about it. But you don't."
             $ darkness=darkness-1
             jump tramo_c__start
 
@@ -333,7 +334,10 @@ label endings__start:
     $ endings__start=endings__start+1
     scene bg closedeyes
     creature "Now, it's time for you to know your fate. Close your eyes."
-    "You closed your eyes, and when you opened..."
+    "You close your eyes..."
+    "..."
+    "And when you open them..."
+    "..."
     if suicide>darkness and darkness>madness :
             jump endings__end_1
     if suicide>madness and madness>darkness :
@@ -369,7 +373,7 @@ label endings__end_2:
     scene bg end2
     "You notice you are untied."
     "A knife is in your hands."
-    "The creature wasn't there."
+    "The creature isn't there."
     "Your mind begins to fade. All of this... This cannot be real.. But if it is real? This thing will haunt me forever."
     "And even if it's not real, it will haunt me forever... I know it!"
     "You pickup the knife and cut your throat seeing your blood spills while everything is becoming darker..."
@@ -384,13 +388,13 @@ label endings__end_3:
     scene bg end3
     "You notice you are untied."
     "A knife is in your hands."
-    "The creature wasn't there."
+    "The creature isn't there."
     "Perhaps it was a dream, but it seems so real..."
     "Perhaps it was just a warning. You have to do your offerings to the dark powers..."
     "Offerings of blood."
     "You pickup the knife..."
     "And cut yourself offering your blood to the dark forces of evil, while tracing strange symbols on the floor."
-    "You will serve them. Forever. Your souls belong to them."
+    "You will serve them. Forever. Your soul belong to them."
     "THE END"
     jump end
 
@@ -401,7 +405,7 @@ label endings__end_4:
     scene bg end4
     "You notice you are untied."
     "A knife is in your hands."
-    "The creature wasn't there."
+    "The creature isn't there."
     "It allowed you to live, but you know what you should do."
     "The forces of evil never forgive, they never forget."
     "They demand blood. And if it's not your blood, it have to be someone else's blood."
@@ -419,10 +423,10 @@ label endings__end_5:
     "A knife is in your hands."
     creature "You know what you have to do. Do it, and have fun doing it."
     "You thank the creature and go out of the cave."
-    "to hunt the responsibles for this."
+    "To hunt the responsibles for this."
     "You tracked and kill one by one in an extasy of blood and flesh."
     "You rape their dead bodies and cum over their open guts."
-    "When the police catch you, you was covered in blood and laugh insanely."
+    "When the police catch you, you was naked, covered in blood and laughing insanely."
     "You was taken and forced to live the rest of your life in an Asylum"
     "THE END"
     jump end
@@ -434,7 +438,7 @@ label endings__end_6:
     scene bg end6
     "You notice you are untied."
     "A knife is in your hands."
-    "The creature wasn't there."
+    "The creature isn't there."
     "You stay there, unable to move."
     "But you know what you should do."
     "..."
@@ -450,7 +454,8 @@ label endings__special_end1:
     $ endings__special_end1=endings__special_end1+1
     scene bg especialend
     "A transformation take place in the cave..."
-    "It's it's something that cannot be described.."
+    "It's..."
+    "It's something that cannot be described.."
     "The creature.. The cave... Everything is the same thing"
     "The creature, me, the cave...."
     "Oh god, make it stop..."

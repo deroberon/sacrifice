@@ -30,7 +30,11 @@ def print_chapter(passage):
             jump=option_definition[0]
             tmp=tmp+"* {"+condition+"}  ["+jump+"] ->"+CHAPTER+"."+jump+"\n"
         elif len(option_definition)>0:
-            tmp=tmp+"* ["+option_definition[0]+"] ->"+CHAPTER+"."+option_definition[0]+"\n"
+            if option_definition[0].find("|"):
+                parts=option_definition[0].split("|")
+                tmp=tmp+"* ["+parts[0]+"] ->"+CHAPTER+"."+parts[1]+"\n"
+            else:
+                tmp=tmp+"* ["+option_definition[0]+"] ->"+CHAPTER+"."+option_definition[0]+"\n"
             options=options+1
             pass
         else:

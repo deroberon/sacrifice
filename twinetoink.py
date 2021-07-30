@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import re
+import sys, getopt
 
 STORY_DATA="tw-storydata"
 PASSAGE_DATA="tw-passagedata"
@@ -45,47 +46,69 @@ def print_chapter(passage):
     tmp=tmp+"\n"
     return tmp
 
+def main(argv):
+    filename=""
+    filename2=""
 
-filename="twine/Teste01.html"
-filename2="twine/Teste01.ink"
+    try:
+        opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
+    except getopt.GetoptError:
+        print("Usage: python twinetoink -i <twinefilename.html> -o <inkfilename.ink>")
+        sys.exit(2)
 
-file=open(filename, 'r',encoding="utf-8")
-lines=file.readlines()
-html=""
-for i in range(0,len(lines)):
-    html=html+lines[i]
-soup = BeautifulSoup(html, 'html.parser')
+    for opt, arg in opts:
+        if opt == '-h':
+            print("Usage: python twinetoink -i <twinefilename.html> -o <inkfilename.ink>")
+            sys.exit(2)
+        elif opt in ("-i", "--ifile"):
+            filename = arg
+        elif opt in ("-o", "--ofile"):
+            filename2 = arg  
 
-story=soup.find_all(STORY_DATA)
-passages=story[0].find_all(PASSAGE_DATA)
+    if filename=="" or filename2=="":
+        print("Usage: python twinetoink -i <twinefilename.html> -o <inkfilename.ink>")
+        sys.exit(2)
 
-# for passage in passages:
-    #print(passage.get("name"))
-    #print(passage.text)
+    file=open(filename, 'r',encoding="utf-8")
+    lines=file.readlines()
+    html=""
+    for i in range(0,len(lines)):
+        html=html+lines[i]
+    soup = BeautifulSoup(html, 'html.parser')
 
-## Parse para levantar nome de todas as variaveis
+    story=soup.find_all(STORY_DATA)
+    passages=story[0].find_all(PASSAGE_DATA)
 
-## 1-) Definir todas as variaveis
-tmp=""
-for passage in passages:
-    vars=re.findall(SET_VARIABLE_PATTERN,passage.text) 
-    for var in vars:
-        if var[0] not in variables:
-            variables[var[0]]=var
+    # for passage in passages:
+        #print(passage.get("name"))
+        #print(passage.text)
 
-for variable in variables.keys():
-    tmp=tmp+"VAR "+variable+" = "+variables[variable][1]+"\n"
+    ## Parse para levantar nome de todas as variaveis
 
-tmp=tmp+"\n-> "+CHAPTER+".Start\n\n"
-## 2-) Imprimir todos os capitulos
-tmp=tmp+"\n=== "+CHAPTER+"===\n"
+    ## 1-) Definir todas as variaveis
+    tmp=""
+    for passage in passages:
+        vars=re.findall(SET_VARIABLE_PATTERN,passage.text) 
+        for var in vars:
+            if var[0] not in variables:
+                variables[var[0]]=var
 
-for passage in passages:
-    tmp=tmp+"= "+passage.get("name")+"\n"
-    tmp=tmp+print_chapter(passage)
+    for variable in variables.keys():
+        tmp=tmp+"VAR "+variable+" = "+variables[variable][1]+"\n"
 
-file2=open(filename2, 'w',encoding="utf-8")
-file2.write(tmp)
-file.close()
-file2.close()
-print(tmp)
+    tmp=tmp+"\n-> "+CHAPTER+".Start\n\n"
+    ## 2-) Imprimir todos os capitulos
+    tmp=tmp+"\n=== "+CHAPTER+"===\n"
+
+    for passage in passages:
+        tmp=tmp+"= "+passage.get("name")+"\n"
+        tmp=tmp+print_chapter(passage)
+
+    file2=open(filename2, 'w',encoding="utf-8")
+    file2.write(tmp)
+    file.close()
+    file2.close()
+    ##print(tmp)
+
+if __name__ == "__main__":
+   main(sys.argv[1:])
